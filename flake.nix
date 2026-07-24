@@ -12,8 +12,12 @@
     in {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          nodejs
+          nodejs_latest
+          python3
         ];
+        shellHook = ''
+          PS1="''${PS1}(dev) "
+        '';
       };
     };
 }
